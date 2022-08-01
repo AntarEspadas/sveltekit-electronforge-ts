@@ -1,38 +1,10 @@
-# create-svelte
+# SvelteKit + Electron Forge + Typescript
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A starter template that uses [SvelteKit](https://kit.svelte.dev/), [Electron Forge](https://www.electronforge.io/) and [TypeScript](https://www.typescriptlang.org/)
 
-## Creating a project
+## Usage
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Clone this repository or click the 'Use this template' button above
+2. Run `yarn install` (recommended) or `npm install`. You might run into issues building the project if using `pnpm`
+3. Use `yarn dev` or `npm run dev` to test your application during development and reload changes automatically
+4. Use `yarn build` or `npm run build` to build your application
