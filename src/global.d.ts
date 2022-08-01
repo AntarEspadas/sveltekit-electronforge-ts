@@ -1,3 +1,3 @@
 declare interface Window {
-    ipcRenderer?: import("electron").IpcRenderer
+	ipcRenderer?: import('electron').IpcRenderer;
 }
