@@ -2,7 +2,7 @@
 	"name": "sveltekit-electronforge-ts",
 	"version": "0.0.1",
 	"license": "MIT",
-	"description": "A starter template for a project using SvelteKit, Electron Forge and TypeScript",
+	"description": "SvelteKit + Electron Forge + TypeScript template",
 	"main": "./electron/build/electron/src/main.js",
 	"scripts": {
 		"dev": "npm run tsc && concurrently --names TypeScript,SvelteKit,'Electron Forge' -c green,red,blue npm:tsc:w npm:dev:svelte npm:dev:electron",
@@ -22,31 +22,7 @@
 		"tsc:w": "tsc -p ./electron/tsconfig.json -w"
 	},
 	"config": {
-		"forge": {
-			"packagerConfig": {},
-			"makers": [
-				{
-					"name": "@electron-forge/maker-squirrel",
-					"config": {
-						"name": "electron_forge_template"
-					}
-				},
-				{
-					"name": "@electron-forge/maker-zip",
-					"platforms": [
-						"darwin"
-					]
-				},
-				{
-					"name": "@electron-forge/maker-deb",
-					"config": {}
-				},
-				{
-					"name": "@electron-forge/maker-rpm",
-					"config": {}
-				}
-			]
-		}
+		"forge": "./forge.config.cjs"
 	},
 	"dependencies": {
 		"electron-reloader": "^1.2.3",
