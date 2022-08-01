@@ -1,0 +1,84 @@
+{
+	"name": "sveltekit-electronforge-ts",
+	"version": "0.0.1",
+	"license": "MIT",
+	"description": "A starter template for a project using SvelteKit, Electron Forge and TypeScript",
+	"main": "./electron/build/electron/src/main.js",
+	"scripts": {
+		"dev": "npm run tsc && concurrently npm:tsc:w npm:dev:svelte npm:dev:electron",
+		"dev:svelte": "vite dev",
+		"dev:electron": "electron-forge start",
+		"build": "npm run build:svelte && npm run build:electron",
+		"build:svelte": "vite build",
+		"build:electron": "electron-forge make",
+		"package:electron": "electron-forge package",
+		"package:svelte": "svelte-kit package",
+		"publish:electron": "electron-forge publish",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"tsc": "tsc -p ./electron/tsconfig.json",
+		"tsc:w": "tsc -p ./electron/tsconfig.json -w"
+	},
+	"config": {
+		"forge": {
+			"packagerConfig": {},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-squirrel",
+					"config": {
+						"name": "electron_forge_template"
+					}
+				},
+				{
+					"name": "@electron-forge/maker-zip",
+					"platforms": [
+						"darwin"
+					]
+				},
+				{
+					"name": "@electron-forge/maker-deb",
+					"config": {}
+				},
+				{
+					"name": "@electron-forge/maker-rpm",
+					"config": {}
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"electron-reloader": "^1.2.3",
+		"electron-serve": "^1.1.0",
+		"electron-squirrel-startup": "^1.0.0"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.0-beta.65",
+		"@electron-forge/maker-deb": "^6.0.0-beta.65",
+		"@electron-forge/maker-rpm": "^6.0.0-beta.65",
+		"@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+		"@electron-forge/maker-zip": "^6.0.0-beta.65",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.38",
+		"@sveltejs/kit": "next",
+		"@types/node": "^18.6.3",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"concurrently": "^7.3.0",
+		"electron": "19.0.10",
+		"eslint": "^8.16.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"prettier": "^2.6.2",
+		"prettier-plugin-svelte": "^2.7.0",
+		"svelte": "^3.44.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tslib": "^2.3.1",
+		"typescript": "^4.7.4",
+		"vite": "^3.0.0"
+	},
+	"type": "module"
+}
