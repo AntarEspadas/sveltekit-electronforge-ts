@@ -8,7 +8,9 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-const serveFiles = serve({ directory: path.join(__dirname, "../../../build") })
+const serveFiles = serve({ directory: path.join(__dirname, "../../../../build") })
+
+console.log(path.join(__dirname, "../../../../build"))
 
 const createWindow = (): void => {
   // Create the browser window.
@@ -27,7 +29,8 @@ const createWindow = (): void => {
     mainWindow.loadURL("http://localhost:5173")
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (!app.isPackaged)
+    mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
