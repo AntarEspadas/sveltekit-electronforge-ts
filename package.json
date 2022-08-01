@@ -5,7 +5,7 @@
 	"description": "A starter template for a project using SvelteKit, Electron Forge and TypeScript",
 	"main": "./electron/build/electron/src/main.js",
 	"scripts": {
-		"dev": "npm run tsc && concurrently npm:tsc:w npm:dev:svelte npm:dev:electron",
+		"dev": "npm run tsc && concurrently --names TypeScript,SvelteKit,'Electron Forge' -c green,red,blue npm:tsc:w npm:dev:svelte npm:dev:electron",
 		"dev:svelte": "vite dev",
 		"dev:electron": "electron-forge start",
 		"build": "npm run build:svelte && npm run build:electron",
