@@ -1,12 +1,16 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 import * as serve from 'electron-serve';
+import * as reloader from "electron-reloader"
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
 	// eslint-disable-line global-require
 	app.quit();
 }
+
+if (!app.isPackaged)
+	require("electron-reloader")(module, { watchRenderer: false, })
 
 const serveFiles = serve({ directory: path.join(__dirname, '../../../../build') });
 
